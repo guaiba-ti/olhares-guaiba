@@ -23,15 +23,19 @@ body {
 
 .cover {
     position: relative;
-    height: 70vh;
-    background-color: #f0f0f0;
+    width: 100%;
+    height: 60vh;
+    background-color: #111;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .cover img {
     width: 100%;
-    height: 70vh;
-    object-fit: cover;
-    opacity: 0.8;
+    height: 100%;
+    object-fit: contain;
+    display: block;
 }
 
 .overlay {
@@ -207,8 +211,11 @@ footer {
         width: 80vw;
         max-width: 400px;
     }
-    .cover, .cover img {
-        height: 220px;
+    .cover {
+        height: 35vh;
+    }
+    .cover img {
+        height: 100%;
     }
     .overlay h1 {
         font-size: 1.5rem;
