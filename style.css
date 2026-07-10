@@ -24,17 +24,13 @@ body {
 .cover {
     position: relative;
     width: 100%;
-    height: 60vh;
-    background-color: #111;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    height: auto;
+    display: block;
 }
 
 .cover img {
     width: 100%;
-    height: 100%;
-    object-fit: contain;
+    height: auto;
     display: block;
 }
 
@@ -211,12 +207,7 @@ footer {
         width: 80vw;
         max-width: 400px;
     }
-    .cover {
-        height: 35vh;
-    }
-    .cover img {
-        height: 100%;
-    }
+
     .overlay h1 {
         font-size: 1.5rem;
     }
