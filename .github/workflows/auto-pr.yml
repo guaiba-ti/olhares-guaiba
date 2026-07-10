@@ -1,0 +1,32 @@
+name: Auto Create PR
+
+on:
+  push:
+    # Ignora a branch main e master para evitar loops ou erros
+    branches-ignore:
+      - main
+      - master
+
+jobs:
+  create-pr:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v6
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          commit-message: Atualização automática de ${{ github.ref_name }}
+          title: 'PR automático - ${{ github.ref_name }}'
+          body: |
+            Este PR foi criado automaticamente a partir da branch `${{ github.ref_name }}`.
+            
+            **Commit:** ${{ github.sha }}
+            **Autor:** ${{ github.actor }}
+          branch: ${{ github.ref_name }}
+          base: main # Se sua branch principal for 'master', mude aqui para 'master'
+          labels: |
+            auto-pr
+            automated
